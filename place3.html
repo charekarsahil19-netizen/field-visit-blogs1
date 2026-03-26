@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historical Fort | Field Visit Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            /* SAME BACKGROUND AS PLACE 1 & 2 - DARK BLUE TO BLACK */
+            background: linear-gradient(270deg, #0a0f1f, #0a1927, #000000);
+            background-size: 600% 600%;
+            animation: gradientMove 12s ease infinite;
+            color: #f1f5f9;
+            min-height: 100vh;
+        }
+
+        /* BACKGROUND ANIMATION */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* BLINK ANIMATION */
+        @keyframes blink {
+            0% { opacity: 1; text-shadow: 0 0 0 #3b82f6; }
+            50% { opacity: 0.7; text-shadow: 0 0 12px #3b82f6; }
+            100% { opacity: 1; text-shadow: 0 0 0 #3b82f6; }
+        }
+
+        /* FADE IN UP ANIMATION */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(59, 130, 246, 0.4);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        header h1 {
+            font-size: 32px;
+            animation: blink 1.2s ease-in-out infinite;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-right: 3px solid #3b82f6;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 2.5s steps(20, end) forwards, blinkCursor 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #3b82f6; }
+        }
+
+        .hero p {
+            font-size: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        /* IMAGE BOX */
+        .img-box img {
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            margin: 25px auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5);
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 25px 45px rgba(59, 130, 246, 0.3); }
+            100% { transform: scale(1); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.5); }
+        }
+
+        .img-box img:hover {
+            transform: scale(1.05);
+            animation: none;
+            border-color: #3b82f6;
+        }
+
+        /* BOX / CARD STYLE */
+        .box {
+            width: 85%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 25px;
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* BOX DELAYS */
+        .box:nth-child(1) { animation-delay: 0.1s; }
+        .box:nth-child(2) { animation-delay: 0.2s; }
+        .box:nth-child(3) { animation-delay: 0.3s; }
+        .box:nth-child(4) { animation-delay: 0.4s; }
+        .box:nth-child(5) { animation-delay: 0.5s; }
+        .box:nth-child(6) { animation-delay: 0.6s; }
+        .box:nth-child(7) { animation-delay: 0.7s; }
+        .box:nth-child(8) { animation-delay: 0.8s; }
+        .box:nth-child(9) { animation-delay: 0.9s; }
+
+        .box:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+            background: rgba(17, 24, 39, 0.95);
+        }
+
+        .box h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+        }
+
+        .box p, .box li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style: none;
+        }
+
+        .box li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            transition: all 0.2s;
+        }
+
+        .box li::before {
+            content: "🏰";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+        }
+
+        .box li:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .highlight {
+            color: #60a5fa;
+            font-weight: bold;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 12px 30px;
+            background: transparent;
+            color: #3b82f6;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 18px;
+            border: 1px solid #3b82f6;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 1.0s;
+        }
+
+        .btn:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            margin-top: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 32px;
+                white-space: normal;
+                border-right: none;
+                animation: none;
+                width: auto;
+            }
+
+            .box {
+                width: 92%;
+                padding: 20px;
+            }
+
+            .box h2 {
+                font-size: 24px;
+            }
+
+            .box p, .box li {
+                font-size: 16px;
+            }
+
+            .hero {
+                padding: 50px 20px;
+            }
+        }
+
+        /* SCROLL BAR */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0f1f;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #60a5fa;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🏰 Field Visit Blog</h1>
+</header>
+
+<section class="hero">
+    <h2>Historical Fort</h2>
+    <p>Exploring Heritage & Architecture</p>
+</section>
+
+<!-- IMAGE BOX -->
+<div class="img-box">
+    <a href="https://en.wikipedia.org/wiki/Forts_in_India" target="_blank">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNWzEf7rqOqSShRm3yy9Oi8YsPAdDQ-dDNLg&shttps://p.turbosquid.com/ts-thumb/N8/4eQUHJ/cib9fkiX/render_01/jpg/1606130941/1920x1080/fit_q87/ce813913d6b19541efaf9958a325495acd100865/render_01.jpg" alt="Historical Fort">
+    </a>
+</div>
+
+<div class="box">
+    <h2>📍 Introduction</h2>
+    <p>
+        A fort is a strong structure built in ancient times for protection and defense.
+        It reflects the rich history and culture of our country.
+        These magnificent structures stand as a testament to the <span class="highlight">architectural brilliance</span> of ancient rulers.
+    </p>
+</div>
+
+<div class="box">
+    <h2>📜 History</h2>
+    <p>
+        The fort was built by kings to protect their kingdom from enemies.
+        It played an important role in many battles and witnessed countless stories of bravery.
+        Each stone of this fort whispers tales of <span class="highlight">valor and sacrifice</span>.
+    </p>
+</div>
+
+<div class="box">
+    <h2>🏗️ Architecture</h2>
+    <ul>
+        <li>Strong stone walls with intricate carvings</li>
+        <li>Large entrance gates with defense mechanisms</li>
+        <li>Watch towers for surveillance</li>
+        <li>Secret pathways for escape</li>
+        <li>Water reservoirs and storage systems</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>⚔️ Importance</h2>
+    <p>
+        The fort shows the strength and planning of ancient rulers.
+        It is an important part of our <span class="highlight">cultural heritage</span>.
+        These structures remind us of our glorious past and inspire future generations.
+    </p>
+</div>
+
+<div class="box">
+    <h2>📚 Learning Outcomes</h2>
+    <ul>
+        <li>Historical knowledge about regional rulers</li>
+        <li>Ancient architecture and construction techniques</li>
+        <li>Defense strategies and warfare methods</li>
+        <li>Cultural significance of heritage sites</li>
+    </ul>
+</div>
+
+<div class="box">
+    <h2>🌿 Environment & Surroundings</h2>
+    <p>
+        The surroundings are peaceful and full of natural beauty.
+        Many forts are located on hilltops offering breathtaking views.
+        The scenic landscape around the fort adds to its majestic charm.
+    </p>
+</div>
+
+<div class="box">
+    <h2>👨‍🎓 Student Experience</h2>
+    <p>
+        Students enjoyed exploring the fort and learning history in an interactive way.
+        Walking through the ancient corridors and standing on the watchtowers
+        gave a glimpse into the glorious past.
+    </p>
+</div>
+
+<div class="box">
+    <h2>🧾 Conclusion</h2>
+    <p>
+        The visit helped us understand history in a practical way.
+        It inspired us to preserve our <span class="highlight">cultural heritage</span>
+        and appreciate the architectural marvels created by our ancestors.
+    </p>
+</div>
+
+<a href="index.html" class="btn">⬅ Back to Home</a>
+
+<footer>
+    <p>© 2026 Field Visit Project | Historical Fort Heritage Blog</p>
+</footer>
+
+</body>
+</html>

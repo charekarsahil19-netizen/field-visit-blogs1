@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Railway Station | Field Visit Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(270deg, #0a0f1f, #0a1927, #000000);
+            background-size: 600% 600%;
+            animation: gradientMove 12s ease infinite;
+            color: #f1f5f9;
+            min-height: 100vh;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes blink {
+            0% { opacity: 1; text-shadow: 0 0 0 #3b82f6; }
+            50% { opacity: 0.7; text-shadow: 0 0 12px #3b82f6; }
+            100% { opacity: 1; text-shadow: 0 0 0 #3b82f6; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 20px 35px rgba(0,0,0,0.5); }
+            50% { transform: scale(1.02); box-shadow: 0 25px 45px rgba(59,130,246,0.3); }
+            100% { transform: scale(1); box-shadow: 0 20px 35px rgba(0,0,0,0.5); }
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #3b82f6; }
+        }
+        header {
+            text-align: center;
+            padding: 25px;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(59,130,246,0.4);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        header h1 { font-size: 32px; animation: blink 1.2s ease-in-out infinite; }
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-right: 3px solid #3b82f6;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 2s steps(20, end) forwards, blinkCursor 0.75s step-end infinite;
+        }
+        .hero p {
+            font-size: 20px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+        .img-box img {
+            display: block;
+            width: 80%;
+            max-width: 700px;
+            margin: 25px auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(59,130,246,0.3);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .img-box img:hover {
+            transform: scale(1.05);
+            animation: none;
+            border-color: #3b82f6;
+        }
+        .box {
+            width: 85%;
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 25px;
+            background: rgba(17,24,39,0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(59,130,246,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        .box:nth-child(1) { animation-delay: 0.1s; }
+        .box:nth-child(2) { animation-delay: 0.2s; }
+        .box:nth-child(3) { animation-delay: 0.3s; }
+        .box:nth-child(4) { animation-delay: 0.4s; }
+        .box:nth-child(5) { animation-delay: 0.5s; }
+        .box:nth-child(6) { animation-delay: 0.6s; }
+        .box:nth-child(7) { animation-delay: 0.7s; }
+        .box:nth-child(8) { animation-delay: 0.8s; }
+        .box:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+            box-shadow: 0 15px 30px rgba(59,130,246,0.2);
+        }
+        .box h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3b82f6;
+            padding-left: 15px;
+        }
+        .box p, .box li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+        ul { list-style: none; padding-left: 0; }
+        .box li {
+            margin-bottom: 8px;
+            padding-left: 28px;
+            position: relative;
+            transition: all 0.2s;
+        }
+        .box li::before { content: "🚂"; position: absolute; left: 0; }
+        .box li:hover { color: white; transform: translateX(5px); }
+        .highlight { color: #60a5fa; font-weight: bold; }
+        .btn {
+            display: block;
+            width: fit-content;
+            margin: 40px auto;
+            padding: 12px 30px;
+            background: transparent;
+            color: #3b82f6;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 18px;
+            border: 1px solid #3b82f6;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+            animation-delay: 0.9s;
+        }
+        .btn:hover {
+            background: #3b82f6;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(59,130,246,0.4);
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0,0,0,0.4);
+            border-top: 1px solid rgba(59,130,246,0.2);
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .hero h2 { font-size: 32px; white-space: normal; border-right: none; animation: none; width: auto; }
+            .box { width: 92%; padding: 20px; }
+            .box h2 { font-size: 24px; }
+            .box p, .box li { font-size: 16px; }
+            .hero { padding: 50px 20px; }
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a0f1f; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<header><h1>🚂 Field Visit Blog</h1></header>
+<section class="hero"><h2>Railway Station</h2><p>Exploring Transport Management & Operations</p></section>
+<div class="img-box">
+    <a href="https://en.wikipedia.org/wiki/Train_station" target="_blank">
+    <img src="https://media.gettyimages.com/id/552552031/photo/mumbai-victoria-terminus-railways-station.jpg?s=612x612&w=gi&k=20&c=0M7A5xt85C6bJqUOErh-hG2LGb1xg4aNpfJpQsHS78A=" alt="Railway Station">
+    </a>
+</div>
+<div class="box"><h2>📍 Introduction</h2><p>A railway station is a facility where trains stop for passengers to board or alight. It is a vital part of <span class="highlight">transportation infrastructure</span>.</p></div>
+<div class="box"><h2>🏛️ About the Station</h2><p>We visited a major railway station that handles hundreds of trains daily. It has modern amenities and efficient crowd management systems.</p></div>
+<div class="box"><h2>🎫 Station Facilities</h2><ul><li>Ticket counters & UTS app</li><li>Waiting rooms & lounges</li><li>Food stalls & shops</li><li>Foot over bridges</li></ul></div>
+<div class="box"><h2>🚆 Train Operations</h2><ul><li>Arrival & departure monitoring</li><li>Platform management</li><li>Signaling system</li><li>Announcement system</li></ul></div>
+<div class="box"><h2>🛡️ Security & Safety</h2><ul><li>CCTV surveillance</li><li>RPF personnel</li><li>Baggage scanners</li><li>Emergency medical room</li></ul></div>
+<div class="box"><h2>🎯 Objectives of Visit</h2><ul><li>Understand railway operations</li><li>Learn crowd management</li><li>Explore station facilities</li><li>Observe ticketing system</li></ul></div>
+<div class="box"><h2>👨‍🎓 Student Experience</h2><p>Students observed train scheduling, passenger flow, and how technology helps in railway management.</p></div>
+<div class="box"><h2>🧾 Conclusion</h2><p>The railway station visit gave insights into transportation systems and efficient management of public services.</p></div>
+<a href="index.html" class="btn">⬅ Back to Home</a>
+<footer><p>© 2026 Field Visit Project | Railway Station Visit Blog</p></footer>
+</body>
+</html>
