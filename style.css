@@ -196,39 +196,45 @@ header p {
     color: #ddd;
 }
 
-/* FOOTER */
+/* FOOTER (UPDATED PREMIUM) */
 footer {
     text-align: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.5);
-    font-size: 14px;
-    border-top: 1px solid rgba(59, 130, 246, 0.2);
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    font-size: 16px;
+    color: white;
+    border-top: 2px solid #6a5acd;
+    margin-top: 50px;
+    animation: fadeIn 1.5s ease-in-out;
 }
 
-/* EXTRA SMALL EFFECTS */
-a {
-    transition: 0.3s;
+/* FOOTER HEAD */
+footer h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
 }
 
-a:hover {
+/* FOOTER TEXT */
+footer p {
+    margin: 6px 0;
     opacity: 0.9;
 }
 
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 28px;
-        white-space: normal;
-        border-right: none;
-        animation: none;
-        width: auto;
-    }
-    
-    .container {
-        padding: 20px;
-    }
-    
-    .hero {
-        padding: 50px 20px;
-    }
+/* MEMBERS STYLE */
+footer .members p {
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+footer .members p:hover {
+    color: #ffd54f;
+    transform: scale(1.05);
+}
+
+/* COPYRIGHT */
+footer .copyright {
+    margin-top: 15px;
+    font-size: 14px;
+    opacity: 0.7;
 }
